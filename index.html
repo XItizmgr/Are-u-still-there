@@ -7,7 +7,54 @@
     <title>Are You there</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <main>
+        <section class="hero">
+          <div class="creepyPic">
+            <div id="eye-container">
+              <div class="btn-container" id="btn-container">
+                <button class="talk-btn">Talk</button>
+                <button>Look</button>
+                <button>Leave</button>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" width="10%" height="20%">
+              <defs>
+                <filter id="analogBlur" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="1" />
+                </filter>
+
+                <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25" />
+                  <stop offset="60%" stop-color="#ffffff" stop-opacity="0.05" />
+                  <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+                </radialGradient>
+
+                <radialGradient id="scleraGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="40%" stop-color="#ffffff" />
+                  <stop offset="75%" stop-color="#b0b0b0" />
+                  <stop offset="100%" stop-color="#2a2a2a" />
+                </radialGradient>
+              </defs>
+
+              <g id="single-eye" filter="url(#analogBlur)">
+                <ellipse cx="50" cy="30" rx="35" ry="24" fill="url(#eyeGlow)" />
+                <ellipse cx="50" cy="30" rx="22" ry="15" fill="url(#scleraGrad)" />
+                <g id="pupil">
+                  <circle cx="50" cy="30" r="10" fill="#0a0a0a" />
+                  <circle cx="50" cy="30" r="5" fill="#000000" />
+                  <circle cx="50" cy="30" r="1.2" fill="#ffffff" opacity="0.9" />
+                </g>
+              </g>
+            </svg>
+          </div>
+        </section>
+      </main>
+      <audio id="background-sound" loop autoplay>
+        <source src="src/assets/Loyalty_Freak_Music_-_07_-_A_really_dark_alley(chosic.com).mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
