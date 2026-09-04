@@ -57,6 +57,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 #eye-container {
   width: 100%;
   height: 100vh;
@@ -71,9 +72,15 @@ body {
   display: flex;
   gap: 20px;
 }
+.Smiling {
+  position: absolute;
+  top: 34%;
+  left: 38%;
+  display: flex;
+  gap: 20px;
+}
 .left-eye {
 }
-
 .btn-container {
   display: flex;
   gap: clamp(2rem, 13vw, 15rem);
@@ -97,7 +104,6 @@ button {
 button:active {
   transform: scale(0.95);
 }
-
 .audio-container {
   position: absolute;
   right: 0;
@@ -149,6 +155,26 @@ button:active {
   pointer-events: none;
   opacity: 0;
 }
-.dialogue.show{
+.dialogue.show {
   opacity: 1;
+}
+.warning {
+  min-width: 70%;
+  min-height: 500px;
+  position:absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  z-index: 99;
+  animation: blinker 2s linear infinite;
+ 
+}
+.warning img {
+  width: 100%;
+  height: 100%;
+}
+@keyframes blinker {
+  50%{
+    opacity: 0;
+  }
 }
