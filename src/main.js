@@ -61,18 +61,28 @@ if (eyes && pupils) {
 
 const dialouge = document.getElementById("dialogue")
 const talkbtn = document.querySelector(".talk-btn")
-const dialogeLines = [
-    "Hello there .",
-    "Are you there ?",
-    " you are looking at me ",
-    " whyy are you still here ?",
-    "....",
+const lookbtn = document.querySelector(".look-btn")
+const leavebtn = document.querySelector(".leave-btn")
+
+const firstvisitDialogue = [
+    "hello..",
+    "Are you there .. ? someone .. Anyone",
+    "You are looking at me . ",
+    "What are you looking for ?",
+    "Why are you still here ?",
+    "...",
     "I can see you.",
-    "Stop looking at me . ",
-    "Stoppppppp",
-    "why did you come back"
 ]
-let dailogueIndex = 0;
+const returnDialogue = [
+    "Welcome back.",
+    "I remember you.",
+    "I knew you would.",
+    "You stayed away for a while. Where were you ?",
+    "Why did you leave me ?",
+]
+
+
+let talkIndex = 0;
 function showDialogue(txt) {
     dialouge.textContent = txt;
     dialouge.classList.add("show");
@@ -82,10 +92,50 @@ function showDialogue(txt) {
     }, 5000);
 }
 
+const hasVisited = localStorage.getItem("visited")
+let visitCount = Number(localStorage.getItem("visitCount")) || 0
+visitCount++
+localStorage.setItem("visitCount", visitCount)
+
+let talkCount = Number(localStorage.getItem("talkCount")) || 0
+const hasLeft = localStorage.getItem("left")
+
+if (hasVisited) {
+    setTimeout(() => {
+        if (hasLeft) {
+            showDialogue("You came back.");
+        }
+        else if (visitCount >= 3) {
+            showDialogue("you keep coming back");
+        }
+        else {
+            showDialogue("Welcome back.")
+        }
+    }, 2000)
+}
+localStorage.setItem("visited", "true");
+
 talkbtn.addEventListener("click", () => {
-    showDialogue(dialogeLines[dailogueIndex]);
-    dailogueIndex++
-    if (dailogueIndex >= dialogeLines.length) {
-        dailogueIndex = 0
+    talkCount++;
+    localStorage.setItem("talkCount", talkCount)
+
+    if (talkCount >= 10) {
+        showDialogue("you really like talking to me. heh heh")
+        return
     }
+    if (hasVisited) {
+        showDialogue(
+            returnDialogue[
+            Math.min(talkIndex, returnDialogue.length - 1)
+            ]
+        )
+    }
+    else {
+        showDialogue(
+            firstvisitDialogue[
+            Math.min(talkIndex, firstvisitDialogue.length - 1)
+            ]
+        )
+    }
+    talkIndex++;
 })
