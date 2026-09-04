@@ -11,71 +11,76 @@
       <main>
         <section class="hero">
           <div class="creepyPic">
+            <div class="svg-container">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" width="15%" height="20%" class="left-eye">
+                <defs>
+                  <filter id="analogBlurLeft" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="1" />
+                  </filter>
+
+                  <radialGradient id="eyeGlowLeft" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25" />
+                    <stop offset="60%" stop-color="#ffffff" stop-opacity="0.05" />
+                    <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+                  </radialGradient>
+
+                  <radialGradient id="scleraGradLeft" cx="50%" cy="50%" r="50%">
+                    <stop offset="40%" stop-color="#ffffff" />
+                    <stop offset="75%" stop-color="#b0b0b0" />
+                    <stop offset="100%" stop-color="#2a2a2a" />
+                  </radialGradient>
+                </defs>
+
+                <g class="single-eye" filter="url(#analogBlurLeft)">
+                  <ellipse cx="50" cy="30" rx="35" ry="24" fill="url(#eyeGlowLeft)" />
+
+                  <ellipse cx="50" cy="30" rx="22" ry="15" fill="url(#scleraGradLeft)" />
+
+                  <g class="pupil">
+                    <circle cx="50" cy="30" r="10" fill="#0a0a0a" />
+                    <circle cx="50" cy="30" r="5" fill="#000000" />
+                    <circle cx="50" cy="30" r="1.2" fill="#ffffff" opacity="0.9" />
+                  </g>
+                </g>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" width="15%" height="20%" class="right-eye">
+                <defs>
+                  <filter id="analogBlurRight" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="1" />
+                  </filter>
+
+                  <radialGradient id="eyeGlowRight" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25" />
+                    <stop offset="60%" stop-color="#ffffff" stop-opacity="0.05" />
+                    <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+                  </radialGradient>
+
+                  <radialGradient id="scleraGradRight" cx="50%" cy="50%" r="50%">
+                    <stop offset="40%" stop-color="#ffffff" />
+                    <stop offset="75%" stop-color="#b0b0b0" />
+                    <stop offset="100%" stop-color="#2a2a2a" />
+                  </radialGradient>
+                </defs>
+
+                <g class="single-eye" filter="url(#analogBlurRight)">
+                  <ellipse cx="50" cy="30" rx="35" ry="24" fill="url(#eyeGlowRight)" />
+
+                  <ellipse cx="50" cy="30" rx="22" ry="15" fill="url(#scleraGradRight)" />
+
+                  <g class="pupil">
+                    <circle cx="50" cy="30" r="10" fill="#0a0a0a" />
+                    <circle cx="50" cy="30" r="5" fill="#000000" />
+                    <circle cx="50" cy="30" r="1.2" fill="#ffffff" opacity="0.9" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="dialogue" id="dialogue"></div>
             <div id="eye-container">
               <div class="btn-container" id="btn-container">
                 <button class="talk-btn">Talk</button>
-                <button>Look</button>
-                <button>Leave</button>
-              </div>
-              <div class="svg-container">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" width="15%" height="20%" class="left-eye">
-                  <defs>
-                    <filter id="analogBlur" x="-30%" y="-30%" width="160%" height="160%">
-                      <feGaussianBlur stdDeviation="1" />
-                    </filter>
-
-                    <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25" />
-                      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.05" />
-                      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
-                    </radialGradient>
-
-                    <radialGradient id="scleraGrad" cx="50%" cy="50%" r="50%">
-                      <stop offset="40%" stop-color="#ffffff" />
-                      <stop offset="75%" stop-color="#b0b0b0" />
-                      <stop offset="100%" stop-color="#2a2a2a" />
-                    </radialGradient>
-                  </defs>
-
-                  <g id="single-eye" filter="url(#analogBlur)" >
-                    <ellipse cx="50" cy="30" rx="35" ry="24" fill="url(#eyeGlow)" />
-                    <ellipse cx="50" cy="30" rx="22" ry="15" fill="url(#scleraGrad)" />
-                    <g id="pupil">
-                      <circle cx="50" cy="30" r="10" fill="#0a0a0a" />
-                      <circle cx="50" cy="30" r="5" fill="#000000" />
-                      <circle cx="50" cy="30" r="1.2" fill="#ffffff" opacity="0.9" />
-                    </g>
-                  </g>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" width="15%" height="20%" class="right-eye">
-                  <defs>
-                    <filter id="analogBlur" x="-30%" y="-30%" width="160%" height="160%">
-                      <feGaussianBlur stdDeviation="1" />
-                    </filter>
-
-                    <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25" />
-                      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.05" />
-                      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
-                    </radialGradient>
-
-                    <radialGradient id="scleraGrad" cx="50%" cy="50%" r="50%">
-                      <stop offset="40%" stop-color="#ffffff" />
-                      <stop offset="75%" stop-color="#b0b0b0" />
-                      <stop offset="100%" stop-color="#2a2a2a" />
-                    </radialGradient>
-                  </defs>
-
-                  <g id="single-eye" filter="url(#analogBlur)">
-                    <ellipse cx="50" cy="30" rx="35" ry="24" fill="url(#eyeGlow)" />
-                    <ellipse cx="50" cy="30" rx="22" ry="15" fill="url(#scleraGrad)" />
-                    <g id="pupil">
-                      <circle cx="50" cy="30" r="10" fill="#0a0a0a" />
-                      <circle cx="50" cy="30" r="5" fill="#000000" />
-                      <circle cx="50" cy="30" r="1.2" fill="#ffffff" opacity="0.9" />
-                    </g>
-                  </g>
-                </svg>
+                <button class="look-btn">Look</button>
+                <button class="leave-btn">Leave</button>
               </div>
             </div>
           </div>
@@ -89,11 +94,10 @@
       </audio>
       <div class="audio-container">
         <span class="audio-label">Volume</span>
-      <input type="range" id="audio-controler" min="0" max="100" value="50">
-      <span id="audio-value">50%</span>
+        <input type="range" id="audio-controler" min="0" max="100" value="50" />
+        <span id="audio-value">50%</span>
       </div>
     </div>
-    
 
     <script type="module" src="/src/main.js"></script>
   </body>

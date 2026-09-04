@@ -133,3 +133,22 @@ button:active {
   border-radius: 1rem;
   outline: none;
 }
+.dialogue {
+  position: absolute;
+  top: 68%;
+  left: 53%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  width: 30rem;
+  font-variant: small-caps;
+  font-size: 2rem;
+  font-family: "IBM Plex Mono", monospace;
+  text-align: center;
+  color: rgb(149, 8, 8);
+  transition: opacity 1s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+.dialogue.show{
+  opacity: 1;
+}
