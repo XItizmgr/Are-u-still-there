@@ -48,7 +48,7 @@ if (eyes && pupils) {
             const eyeY = eyeDetail.top + eyeDetail.height / 2
             const mouseX = e.clientX
             const mouseY = e.clientY
-            console.log(mouseX)
+            // console.log(mouseX)
             const diffX = mouseX - eyeX
             const diffY = mouseY - eyeY
             const distance = Math.hypot(diffX, diffY)
@@ -139,8 +139,13 @@ lookbtn.addEventListener("click", () => {
 })
 leavebtn.addEventListener("click", () => {
     localStorage.setItem('left', "true")
+    localStorage.setItem('style', "true")
     showDialogue("leaving already ? ")
 })
+
+
+
+
 const creepypicContainer = document.getElementById("creepyPic")
 const svgContainer = document.querySelector(".svg-container")
 const wariningcontainer = document.querySelector('.warning')
@@ -154,9 +159,35 @@ else {
 }
 if (hasVisited) {
     wariningcontainer.style.display = "none"
+
+    randomBlink();
 }
 document.addEventListener("click", (e) => {
     if (e.target) {
         wariningcontainer.style.display = "none"
+        randomBlink();
     }
 })
+const container = document.querySelector(".cointainer-single")
+if (localStorage.getItem("style")) {
+    container.style.left = "37.5%"
+
+}
+function blink() {
+    const eyelids = document.querySelectorAll(".single");
+
+    eyelids.forEach((eye) => {
+        eye.classList.add("blink");
+    });
+    setTimeout(() => {
+        eyelids.forEach((eye) => {
+            eye.classList.remove("blink");
+        });
+    }, 180);
+}
+function randomBlink() {
+    blink();
+    const nextBlink = Math.random() * 4000 + 2000;
+    console.log(nextBlink)
+    setTimeout(randomBlink, nextBlink);
+}
